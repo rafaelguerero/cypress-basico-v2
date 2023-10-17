@@ -1,0 +1,2 @@
+Abrir Cypress: npx cypress open
+npm run cy:open
