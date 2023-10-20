@@ -125,4 +125,16 @@ describe('Central de Atendimento ao Cliente TAT', function () {
                 expect($input[0].files[0].name).to.equal('example.json');
             });
     });
+
+    it('Verifica a política de privacidade em outra aba', () => {
+        cy.get('#privacy a').should('have.attr', 'target', '_blank');
+    });
+
+    it('Remove o target e abre na mesma aba', () => {
+        cy.get('#privacy a')
+            .invoke('removeAttr', 'target')
+            .click();
+        
+        cy.contains('Talking About Testing').should('be.visible');
+    });
 })
